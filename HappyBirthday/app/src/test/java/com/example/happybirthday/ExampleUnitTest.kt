@@ -1,4 +1,4 @@
-package com.example.dice_roller
+package com.example.happybirthday
 
 import org.junit.Test
 
@@ -13,10 +13,5 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
-    }
-    @Test
-    fun roll_result(){
-        val dice = Dice(6)
-        assertTrue("The value of dice.roll() result is not between 1 and 6",dice.roll() in 1..6)
     }
 }

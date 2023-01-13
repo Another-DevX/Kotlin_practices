@@ -3,6 +3,7 @@ package com.example.dice_roller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import java.lang.Math.random
@@ -23,14 +24,17 @@ class MainActivity : AppCompatActivity() {
     //This function create a Dice object with arg 6, and change the resultView.text with the return of the method roll of the Dice object
     private fun diceRoll() {
         val dice = Dice(6)
-        val resultView: TextView = findViewById(R.id.textView)
-        if ( dice.roll() == dice.luckyNumber()){
-            resultView.text = "Congratulations, you won \n${dice.roll()}"
+        val diceImage: ImageView = findViewById(R.id.imageView)
+        val drawableResource = when (dice.roll()){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> { R.drawable.dice_6}
         }
-        else{
-            resultView.text = "Sorry, you lose \n${dice.roll()}"
-        }
-
+        diceImage.setImageResource(drawableResource)
+        diceImage.contentDescription = dice.roll().toString()
     }
 }
 
